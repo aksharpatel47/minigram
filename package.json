@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:start": "nodemon index.js",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,8 +17,6 @@
     "postgraphql": "^3.5.0"
   },
   "devDependencies": {
-    "@types/node": "^8.0.44",
-    "@types/node-pg-migrate": "^2.3.1",
-    "typescript": "^2.5.3"
+    "nodemon": "^1.12.1"
   }
 }
