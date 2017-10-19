@@ -1,26 +1,15 @@
 const pgLiteral = require("node-pg-migrate").PgLiteral
-const timestampColumn = {
-  type: "timestamp with time zone",
-  notNull: true,
-  default: new pgLiteral("current_timestamp"),
-}
-
-const primaryKeyID = {
-  type: "uuid",
-  primaryKey: true,
-  notNull: true,
-  default: new pgLiteral("uuid_generate_v4()"),
-}
+const { timestampColumn, primaryKeyIDColumn } = require("./migration_helpers")
 
 exports.up = (pgm, run) => {
   pgm.createTable("media", {
-    id: primaryKeyID,
+    id: primaryKeyIDColumn,
     image: { type: "varchar(200)", notNull: true },
     thumbnail: { type: "text", notNull: true },
   })
 
   pgm.createTable("posts", {
-    id: primaryKeyID,
+    id: primaryKeyIDColumn,
     created_by: {
       type: "uuid",
       notNull: true,
