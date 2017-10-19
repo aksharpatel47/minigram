@@ -6,6 +6,7 @@ exports.up = (pgm, run) => {
     id: primaryKeyIDColumn,
     image: { type: "varchar(200)", notNull: true },
     thumbnail: { type: "text", notNull: true },
+    created_at: timestampColumn,
   })
 
   pgm.createTable("posts", {

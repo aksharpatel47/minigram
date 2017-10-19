@@ -1,5 +1,5 @@
 const pgLiteral = require("node-pg-migrate").PgLiteral
-const { timestampColumn } = require("./migration_helpers")
+const { timestampColumn, primaryKeyIDColumn } = require("./migration_helpers")
 
 exports.up = (pgm, run) => {
   pgm.createTable("post_likes", {
@@ -23,6 +23,7 @@ exports.up = (pgm, run) => {
   })
 
   pgm.createTable("post_comments", {
+    id: primaryKeyIDColumn,
     user_id: {
       type: "uuid",
       notNull: true,
@@ -37,7 +38,7 @@ exports.up = (pgm, run) => {
       onDelete: "cascade",
       onUpdate: "cascade",
     },
-    data: { type: "varchar(140)", notNull: true },
+    comment: { type: "varchar(140)", notNull: true },
     created_at: timestampColumn,
   })
 
