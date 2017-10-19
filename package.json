@@ -4,19 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:start": "nodemon index.js",
+    "test": "jest",
+    "dev:start": "env-cmd .env nodemon index.js",
     "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-pg-migrate": "^2.13.0",
-    "pg-migrate": "^2.0.0",
-    "postgraphql": "^3.5.0"
+    "node-pg-migrate": "2.13.0",
+    "pg": "7.3.0",
+    "postgraphql": "3.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1"
+    "env-cmd": "7.0.0",
+    "jest": "21.2.1",
+    "nodemon": "1.12.1"
   }
 }

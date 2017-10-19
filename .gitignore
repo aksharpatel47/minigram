@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# VSCode related files
+.vscode
+
+# Webstorm related files
+.idea

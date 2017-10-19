@@ -1,10 +1,14 @@
 const http = require("http")
 const { postgraphql } = require("postgraphql")
 
-http
+const app = http
   .createServer(
-    postgraphql(process.env.DB_STRING || "", undefined, {
+    postgraphql(process.env.DATABASE_URL || "", "public", {
       graphiql: true,
+      dynamicJson: true,
+      watchPg: true,
+      graphiqlRoute: "/graphiql",
+      extendedErrors: ["hint", "detail", "errcode"],
     })
   )
   .listen(3000, err => {
